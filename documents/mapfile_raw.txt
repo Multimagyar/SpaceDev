@@ -1,0 +1,22 @@
+﻿!egyszer jelenikmeg![header]{version}([Level Data]({Level name})[ambient light]({R}{G}{B})[Directional light]({R}{G}{B}{x}{y}{z}))
+[objektumok]
+(
+{objektum index} !pl.: Player_Start indexe! !ebből több is lehet!
+{blokk nyitás}
+	!objektum adatok a következő a blokkban példa jellegűek!
+	"pos" {x}{y}{z} !poziciója és iránya minden objektumnak lesz maximum ignorálja ha irreleváns!
+	"dir" {x}{y}{z}
+	"range" {radius}
+	"vertex" {háromszög szám} !ez nem szükséges ha nem tartalmaz pálya geometriát az objektum!
+	{blokk nyitás}
+		{x}{y}{z} {xn}{yn}{zn} {xbn}{ybn}{zbn} {xt}{yt}{zt} {r}{g}{b}{a} {u}{v}
+		{x}{y}{z} {xn}{yn}{zn} {xbn}{ybn}{zbn} {xt}{yt}{zt} {r}{g}{b}{a} {u}{v}
+		{x}{y}{z} {xn}{yn}{zn} {xbn}{ybn}{zbn} {xt}{yt}{zt} {r}{g}{b}{a} {u}{v}
+	{blokk zárás} 
+	"collision" {háromszög szám} {flag} !flag arra kell hogy megállapítsuk hogy kire legyen érvényes az ütközés kezelés pl: mindenki, player, enemy, line of sight. etc. binárisan értelmezendő 111111 minden 111110 minden kivéve a line of sight 000001 csak a line of sight!
+	!ez nem szükséges ha nem tartalmaz pálya geometriát az objektum!
+	{blokk nyitás}
+		{x}{y}{z} {x}{y}{z} {x}{y}{z}
+	{blokk zárás}	
+{blokk zárás}
+)
