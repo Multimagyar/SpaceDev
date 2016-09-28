@@ -1,0 +1,7 @@
+﻿a világ geometria szükséges a pálya megjelenítéséhez és egyéb ütközési adatok tárolására.
+Ez egy binárisan tárolt fájl lesz, ezt egy objektum orientált módszerrel tároljuk.
+A teljes terv a mapfile_raw-ban található [label] {adatneve} (blokk) "string" !komment! 
+A pálya geometriának tárolnia kell egy csúcs szerkezetet háromszögekből össze rakva hogy megjelenítse a pályát,
+Ütközési modelt, ő is egy csúcs pontos háromszög szerkezet de ezt nem rajzoljuk ki, csak bináris fában tároljuk.
+Ennek a tárolására ha lehetséges Bullet physics engine-t használunk, mivel ez fizikát és ütközési struktúrát is biztosít.
+Viszont ez egy DLL fájlban van Linuxot kizárja.
