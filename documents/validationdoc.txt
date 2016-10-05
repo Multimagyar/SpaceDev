@@ -59,4 +59,5 @@ Információ források
 
  .Obj wavefront fájl olvasása és használata http://www.martinreddy.net/gfx/3d/OBJ.spec
  .map fájl alapján készült a hozzá tartozó dokumentum egy Amerikai Egyetem hallgatója készítette el. Az eredeti forrás megsemmisült de a PDF ami hozzá tartozik megmaradt és a személyes dropbox fiókomban le lett tárolva.
+ https://dl.dropboxusercontent.com/u/86461047/MAPFiles.pdf
  
