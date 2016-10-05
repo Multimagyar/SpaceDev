@@ -1,0 +1,81 @@
+
+i^2=j^2=k^2=ijk=-1
+i=(1,0,0)
+j=(0,1,0)
+k=(0,0,1)
+
+  i  j   k
+__________  
+i|-1 k  -j
+j|-k -1  i				eg.i*j=k;j*i=-k
+k| j -i -1 	
+
+v1_=(a,b,c,d)=(a,bi,cj,dk)=(skalár,vektor)=(a,x)
+v2_=(e,f,g,h)=(e,y)
+v1_*v2_ =(ae-bf-cg-dh, af+be+ch-dg, ag-bh+ce+df, ah+bg-cf+de)=
+
+a-b-c-d
+ba-dc
+cda-b
+d-cba
+*
+e
+f
+g
+h
+
+=
+
+=(ae-xy,ex+ay+x x y)
+			   ^
+			   |
+			  keresztszorzat
+
+-Quaternionná alakítási formula:(a,b,c,d)->
+a-b-c-d
+ba-dc
+cda-b
+d-cba
+
+-Quaternion alak
+1=		i=		j=		k=
+1000	0-100	00-10	000-1
+0100	1000	0001	00-10
+0010	000-1	1000	0100
+0001	0010	0-100	1000	  
+			  
+-számítások
+v1=(0,v1_);v2=(0,v2_)
+(0,v1_)(0,v2_)=(-v1_v2_,v1_ x v2_)
+(0,v2_)(0,v1_)=(-v1_v2_,v2_ x v1_) = (-v1_v2_,-v1_ x v2_)
+v1v2+v2v1=-2v1_v2_
+v1_v2_=-0,5(v1v2+v2v1)
+v1v2-v2v1=2(v1_ x v2_)
+
+v_=(a+b*i)
+-2D-s forgatás:
+(a,b)'=(a*cos(angle)-b*sin(angle),a*sin(angle)+b*cos(angle))
+quaternionokkal:
+(a+b*i)'=(cos(angle)+sin(angle))(a+b*i) =
+=e^(angle*i)(a+b*i) =>v'_=e^(angle*i)*v_
+
+^n^= a tengelyvektor normalizált alakja
+-3D-s forgatás speciális eset(vektor merõleges a tengelyre, ami körül forgatjuk):
+v'_=cos(angle)*v_+sin(angle)*(^n^ x v_)
+quaternionokkal:
+v'=(cos(angle)+sin(angle)*n)v
+v'=e^(angle*n)*v
+
+nx=a normálvektor x komponense
+ny=a normálvektor y komponense
+nz=a normálvektor z komponense
+-3D-s forgatás általánosan:
+v'_=(1-cos(angle))(v_*^n^)*^n^+cos(angle)*v_+sin(angle)(^n^ x v_)
+Quaternionokkal:
+v'=e^((angle/2)*n)*v*e^((-angle/2)*n), ahol
+e^((angle/2)*n)=cos(angle/2)+sin(angle/2)*nx*i+sin(angle/2)*ny*j+sin(angle/2)*nz*k
+e^((-angle/2)*n)=cos(angle/2)-sin(angle/2)*nx*i-sin(angle/2)*ny*j-sin(angle/2)*nz*k
+
+Magyarul: Ha van egy v_ vektorom, amit el akarok forgatni angle szöggel egy n tengely körül, akkor:
+-Fel kell írnom a vektort quaternionként a Quaternionná alakítási formula szerint
+-A képlet alapján kiszámolom a v'_vektort, ami akkor van jól kiszámolva, ha a skalár érték 0. 
