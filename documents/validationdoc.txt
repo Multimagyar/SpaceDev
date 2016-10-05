@@ -1,0 +1,62 @@
+Verzió számok x.y.z.k
+
+x - Major
+y - Minor
+z - Fix
+k - Quick Fix
+
+
+célja az általános áttekintés a software-ről 
+1. víziós dokumentum
+2.2 termék áttekintő <- (probléma megfogalmazás)
+
+2.3 
+
+3.4 (Felhasználói környezet)
+
+
+4.3 (függőségek)
+
+5. (többnyire felette lévő rész)
+
+7. (minőségi garancia)
+	mit ajánlunk (support)
+	
+9.	kockázat lista:
+		-nem készülel időben blablabla
+		
+10. szótár
+
+2. projekt terv (nincs felsorolás)
+
+1. csoport tagjai, struktúrája
+
+	Szeszák Ádám			
+	Musatics Gilbert		
+	Teket Dávid				
+	Grecmájer Máté			
+	Tóth Előd				
+
+2. fejlesztési terv: mérföldkövek, eredmények
+
+3. programozói nyelvek, fejlesztő eszközök
+	
+	A program C# nyelven, visual studioban készül és fordul, Directx 11 grafikus pipeline-al, Windows 10 alatt.
+
+4. használni tervezett eszközök, technkikák
+
+	DirectX 11-et használunk, 3Ds max 2016 modellező szoftvert a modellek létrehozására, 
+	opcionálisan Nodepad++ kézi adat módosításra, 
+	Valve Hammer editor pálya geometria tervezésére és létrehozására.
+
+5. Leendő produktumok, és létrejöttük ideje.
+
+6. Tesztelési követelmények
+
+7. Bemutatás (Demó) és szálítás módja, ideje
+
+Információ források
+
+ .Obj wavefront fájl olvasása és használata http://www.martinreddy.net/gfx/3d/OBJ.spec
+ .map fájl alapján készült a hozzá tartozó dokumentum egy Amerikai Egyetem hallgatója készítette el. Az eredeti forrás megsemmisült de a PDF ami hozzá tartozik megmaradt és a személyes dropbox fiókomban le lett tárolva.
+ 
