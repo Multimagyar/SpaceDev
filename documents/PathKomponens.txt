@@ -1,12 +1,48 @@
->>>>>>>>>>>>>>>>>>>> PATH komponens ##### leírás #####
+GameServices -> EnemyPath komponens ### leírás ###
 
-Kommunikációs felület [path_interface]:
+											IPath modul (kommunikációs felület)
+
+	(X) komponens létrehoz (N) ellenséget. Ezt közli a IPath felületen keresztül, hogy az (N)-eket el kell pozícionálni a jeleneten. 
+	Szükség lehet:
+		 
+		 modul inicializálása -> Initialize 
+		 (n)-ek törlésére -> DisposePoint
+		 (n)-ek létrehozására -> SpawnPoint
+		 (N) időközönkénti lekérdezése (x) részéről -> Positions
+		 	
+
+			public interface IPath
 	
-	- Célja: egyszerű hozzáférhetőség más komponens számára. 
+					Célja: funckionálisan releváns üzenetváltások felület és külső komponensek között. 
 
-	  [pld.:] X komponens létrehoz egy ellenséget. Ezt közli a 'path_interface'-en keresztül,
-	  hogy az ellenséget el kell pozícionálni a térben / síkon. A kérést az 'insert_position' fogja lekezelni a 'spawn_dispose' modulon belül.
-	  Ezzel egy új 'position' adat fog bekerülni a 'positions' tárolójába.
+			void Initialize(); 
+ 					
+					A jelenethez, játékmenethez stb. igazodva beállítja a komponens tárolóit.
+
+			void DisposePoint(int id); 
+			
+		  			A jeleneten megszűnt egy ellenség, törölni kell a pozícióját.			
+
+					> id: minden ellenségnek a jelenetben létezik egy egyedi azonosítója.
+
+			void SpawnPoint(); 
+				 	A jeleneten létrejött egy ellenség, meg kell határozni a pozícióját.		
+
+			Positions GetPositions();
+ 					A jelenet leképezéséért felelős komponens hívja. Visszaad egy pozíciótérképet ami alapján el tudja helyezni az 'enemy'-ket a jeleneten (mozgatás).
+					
+					> Positions: minden ellenség adott jelenetben lévő pozícióinak halmaza, tartalmazza továbbá az ellenségek id-ját is, amit további célokra is 
+					  fel lehet használni. A háttérben JSON-ös formában van letárolva (gyorsabb).
+
+
+										PositionMatrix (adattároló)
+
+	Szükség lehet a következő adattagokra:
+
+		(n) pontkoordináták: x, y.
+		(n) azonosítók: id
+
+ 
 
 Adatok létrehozása vagy törlése [spawn_dispose]:
 
