@@ -49,9 +49,9 @@ célja az általános áttekintés a software-ről
 	opcionálisan Nodepad++ kézi adat módosításra, 
 	Valve Hammer editor pálya geometria tervezésére és létrehozására.
 
-5. Leendő produktumok, és létrejöttük ideje.
+5. Leendő produktumok, és létrejöttük ideje.		
 
-6. Tesztelési követelmények
+6. Tesztelési követelmények	
 
 7. Bemutatás (Demó) és szálítás módja, ideje
 
