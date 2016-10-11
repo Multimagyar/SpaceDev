@@ -1,0 +1,16 @@
+Fegyver típusok:
+1. Main - Energiát fogyaszt(lövésenként 2), de közepes sebzést okoz.
+2. Speciális - Ha a Player eléri a megfelelő energiaszintet(a túltöltődés eléri min a 100%-ot) akkor használhatja. A Speciális képességet a Player választja ki a törzs fejlesztésével.
+3. Rare - Energiát fogyaszt(lövésenként 8), de nagy sebzést okoz.
+4. Side - Nem energiát,hanem ammo-t fogyaszt.A maximum ammo függ hogy a Player milyen Side fegyvert választ:
+				-ha rakétát akkor 5,
+				-ha gépfegyvert akkor 100 ,
+				-ha lézer fegyvert akkor 10. 	
+		- Az ammo-ból egy "egység" 5 mp-ként töltődik újra:
+				-rakétánál egy egység=1 db rakéta,
+				-gépfegyvernél egy egység=20 töltény,
+				-lézernél egy egység=2 lézernyaláb.
+		-Sebzés:
+				-rakéta=óriás sebzést okoz,
+				-gépfegyver=kis sebzést okoz,
+				-lézernyaláb=nagy sebzést okoz.
