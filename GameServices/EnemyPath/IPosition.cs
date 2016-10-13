@@ -4,13 +4,13 @@ namespace GameServices
 {
 	public interface IPosition
 	{
-		void Initialize (int width, int height); // Komponens inicializáló.
-
 		void Spawn();							// Pontok létrehozása.
 
 		void Dispose (int id);					// Pontok törlése.
 
-		string GetPositions ();					// Pontok lekéréséhez.
+		string GetPositions ();					// Pontok lekérése.
+
+		void UpdatePositions(System.Collections.Generic.List<Position> pos); 	// Pontok frissítése.
 	}
 }
 
