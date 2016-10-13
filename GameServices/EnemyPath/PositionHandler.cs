@@ -7,13 +7,11 @@ namespace GameServices
 	public class PositionHandler : IPosition		
 	{
 		private List<Position> positions;
-		private static int id = 0;
 
-		private static int deletions = 0;	// Segédváltozók spawn-felügyelethez.
-		private const int limit = 50;	
-		 
+		private static int id = 0;
+		private const int limit = 50;		 
 	
-		public void Initialize (int width, int height)	
+		public PositionHandler (int width, int height)	
 		{
 			positions = new List<Position> ();		
 
@@ -23,7 +21,7 @@ namespace GameServices
 
 		public void Spawn ()				// Új kezdőpontok létrehozása az alapvonalon.
 		{
-			if((limit + deletions) > 0) 
+			if(positions.Count < limit) 
 			{
 				Position p = new Position ();
 
@@ -43,11 +41,9 @@ namespace GameServices
 		{
 			foreach (Position p in positions)
 			{
-				if (p.id == id) {
-					positions.Remove (p);
-
-					--deletions;
-					
+				if (p.id == id) 
+				{
+					positions.Remove (p);					
 					return;
 				}
 			}
@@ -63,6 +59,28 @@ namespace GameServices
 			this.positions = p;
 		}
 
+		public void UpdateAttributes (int id = -1)		// Sebesség, részhossz, szög.
+		{
+			Random rnd = new Random ();
+
+			foreach (Position p in positions) 
+			{
+				if (id != -1) { // Adott id mozgási tulajdonságainak frissítése.
+					GenerateAttributes(p);
+					return;
+				}
+
+				else {
+					GenerateAttributes (p);
+				}					
+			}
+		}
+
+		private static void GenerateAttributes (Position p) {
+			p.angle = rnd.Next (45, 135);		
+			p.waypoint = rnd.Next (37, 264);	// ~ 1 & 7 cm közötti
+		}
+			
 	}
 }
 
