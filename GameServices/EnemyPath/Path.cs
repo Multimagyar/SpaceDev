@@ -7,31 +7,32 @@ namespace GameServices
 	{
 		private PositionHandler ph;
 
-		public Path (int w, int h)			// A komponens felhasználásához más kompnens csak ezt az osztályt használhatja.
+		public Path(int width, int height) {
+			ph = new PositionHandler (width, height);
+		}
+
+
+		public string GetPath (int w, int h)			// A vezérlő ezt a  metódust hívja. JSon string-et ad vissza.
 		{
-			ph = new PositionHandler ();
-			ph.Initialize (w, h);
-
-			while (true)
-			{
-				try {
-					
-					ph.Spawn ();
-					ph.UpdatePositions = Motion (ph.GetPositions);
-				} 
-
-				catch(Exception e) {
-					// Loggolunk.
-				}
-				System.Threading.Thread.Sleep (100);		
-
-			}
+			ph.UpdatePositions(Motion(ph.GetPositions));
+			ph.GetPositions ();
 		}
 			
 
 		private List<Position> Motion(List<Position> ps)		// Pontok mozgatása két jelenet között. 
 		{
-			// todo: algoritmus kidolgozására és implementációjára vár.
+			foreach (Position p in ps) 
+			{
+				if (p.waypoint == p.y) {
+					ph.UpdateAttributes (p.id); 
+				}
+
+				p.x -= Math.Cos (p.angle) * p.waypoint;  	// xn = xn-1 + Cos(szög), yn = yn-1 + Sin(szög)
+				p.y -= Math.Sin (p.angle) * p.waypoint;
+
+				if (p.y < 0)
+					ph.Dispose (p.id);			// Kiért a rajzterületről.
+			}
 		}
 	}
 }
