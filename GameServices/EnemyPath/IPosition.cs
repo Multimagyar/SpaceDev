@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameServices
+namespace EnemyPath
 {
 	public interface IPosition
 	{
@@ -9,8 +9,6 @@ namespace GameServices
 		void Dispose (int id);					// Pontok törlése.
 
 		string GetPositions ();					// Pontok lekérése.
-
-		void UpdatePositions(System.Collections.Generic.List<Position> pos); 	// Pontok frissítése.
 	}
 }
 
