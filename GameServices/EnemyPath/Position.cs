@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace GameServices
+namespace EnemyPath
 {
-
-	// Ez az osztály a pontok leírásához szükséges adatokat írja le.
+	// Tárolóosztály.
 
 	public class Position 			
 	{
