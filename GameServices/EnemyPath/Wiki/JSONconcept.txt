@@ -1,0 +1,80 @@
+[ 
+   {
+	"time" x	//T0 a 2D-be belépés kezdőpontjától számolandó x az attól eltelt időt jelenti
+	"health" h	//triviális
+	"shield" s	//triviális
+	"spawnx" x
+	"spawny" y
+	"spawnz" z
+	"movement"
+	[
+		{
+			"time" t
+			"nextx" x
+			"nexty" y
+			"nextx" z
+			"outgoingvectorx" vx // nem kell hogy normalizált legyen!
+			"outgoingvectory" vy
+			"outgoingvectorz" vz
+			"incomingvectorx" vx // nem kell hogy normalizált legyen!
+			"incomingvectory" vy
+			"incomingvectorz" vz
+		}
+		.
+		.
+		.
+	]
+	"attack"
+	[
+		{
+			"time" t
+			"direction" lambda
+			"speed" v
+			"damage" d
+		}
+		.
+		.
+		.
+	]
+   }	
+]
+
+lista
+	térkép(ek)
+		elemek
+		lista
+			térkép(ek)
+
+
+
+Megjegyzés:
+
+double dt; //eltelt idő
+int T=30; //frame idő amin belül meg kell történnie
+
+sqr(dt)
+
+
+vec3 forward;
+
+double v=5;
+
+forward.x = 1;
+forward.y = 0;
+forward.z = 0;
+
+x+=forward.x*v;
+y+=forward.y*v;
+z+=forward.z*v;
+
+vec3.x=15;
+vec3.y=10;
+vec3.z=5;
+
+vec3.length();(=18,708286934)
+
+vec3=vec3/vec3.length();
+
+vec3.x=0,801783726;
+vec3.y=0,534522484;
+vec3.z=0,267261242;
