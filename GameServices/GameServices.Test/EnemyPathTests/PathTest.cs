@@ -19,24 +19,14 @@ namespace EnemyPath.Test
 
 			while (frames < 600)
 			{
-				file.WriteLine (p.GetPath() + '\n');
+				output += p.GetPath () + '\n';
 				frames++;
 			}
 
+			file.Write (output);
+
 			Assert.AreEqual ("probe", output);
-		} 
-
-		[Test]
-		public void Motion_GeneralTest_NoException()
-		{
-			// todo...
 		}
-
-		[Test]
-		public void Dispose_ValidIdNumber_IsTrue()
-		{
-			// todo...
-		}	
 	}
 
 }

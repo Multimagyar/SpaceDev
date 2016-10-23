@@ -100,12 +100,12 @@ namespace EnemyPath
 		{
 			foreach (Position p in positions) 
 			{
-				if (p.waypoint == p.y) {
+				if (p.waypoint < p.y) {
 					UpdateAttribute (p.id); 
 				}
 
-				p.x -= (int) Math.Cos (p.angle) * p.waypoint;  	// xn = xn-1 + Cos(szög), yn = yn-1 + Sin(szög)
-				p.y -= (int) Math.Sin (p.angle) * p.waypoint;
+				p.x +=  (int)(Math.Cos (p.angle) * p.waypoint);  	// xn = xn-1 + Cos(szög), yn = yn-1 + Sin(szög)
+				p.y +=  (int)(Math.Sin (p.angle) * p.waypoint);
 
 				if (p.y < 0)
 					Dispose (p.id);			// Kiért a rajzterületről.

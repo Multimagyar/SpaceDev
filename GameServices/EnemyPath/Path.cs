@@ -10,13 +10,13 @@ namespace EnemyPath
 
 		public Path(int w, int h) 
 		{
-			ph = new PositionHandler (w, h);
+			ph = new PositionHandler (w, h);		
+			ph.Spawn ();
 		}
 
 
 		public string GetPath ()			// Pontok létrehozása & mozgatása.
-		{
-			ph.Spawn ();
+		{	
 			ph.Motion ();
 			return ph.GetPositions ();
 		}
