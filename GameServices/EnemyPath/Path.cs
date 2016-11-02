@@ -1,37 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace GameServices
+namespace EnemyPath
 {
+	// Komponens felület.
+
 	public class Path
 	{
 		private PositionHandler ph;
 
-		public Path (int w, int h)			// A komponens felhasználásához más kompnens csak ezt az osztályt használhatja.
+		public Path(int w, int h) 
 		{
-			ph = new PositionHandler ();
-			ph.Initialize (w, h);
-
-			while (true)
-			{
-				try {
-					
-					ph.Spawn ();
-					ph.UpdatePositions = Motion (ph.GetPositions);
-				} 
-
-				catch(Exception e) {
-					// Loggolunk.
-				}
-				System.Threading.Thread.Sleep (100);		
-
-			}
+			ph = new PositionHandler (w, h);		
+			ph.Spawn ();
 		}
-			
 
-		private List<Position> Motion(List<Position> ps)		// Pontok mozgatása két jelenet között. 
+
+		public string GetPath ()			// Pontok létrehozása & mozgatása.
+		{	
+			ph.Motion ();
+			return ph.GetPositions ();
+		}
+
+		public void Dispose(int id)			// Pontok törlése & újraspawnolása.
 		{
-			// todo: algoritmus kidolgozására és implementációjára vár.
+			ph.Dispose (id);
 		}
 	}
 }
