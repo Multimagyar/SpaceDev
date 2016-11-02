@@ -1,7 +1,20 @@
 ﻿a világ geometria szükséges a pálya megjelenítéséhez és egyéb ütközési adatok tárolására.
-Ez egy binárisan tárolt fájl lesz, ezt egy objektum orientált módszerrel tároljuk.
+Ez egy olvasható formátumban lesz, ezt egy objektum orientált módszerrel tároljuk.
 A teljes terv a mapfile_raw-ban található [label] {adatneve} (blokk) "string" !komment! 
 A pálya geometriának tárolnia kell egy csúcs szerkezetet háromszögekből össze rakva hogy megjelenítse a pályát,
 Ütközési modelt, ő is egy csúcs pontos háromszög szerkezet de ezt nem rajzoljuk ki, csak bináris fában tároljuk.
 Ennek a tárolására ha lehetséges Bullet physics engine-t használunk, mivel ez fizikát és ütközési struktúrát is biztosít.
 Viszont ez egy DLL fájlban van Linuxot kizárja.
+
+A formátum neve .map2 a .map után elnevezbe egy objektum alapú rendszer.
+Minden objektumba van rendezve nem kell mindennek viszont objektum ként viselkednie.
+egy class tartalmaz mindig egy class nevet amit a program majd felismer ez alapján, és létre hozza az objektumot az egyéb szükséges adatokkal.
+Ha egy adat nem létezik a classname kivételével, akkor egy alapértelmezett értéket kap.
+
+Geometria létre hozásakor lehetséges megadni a területet végtelen felületek metszetével, vagy domborzat esetén akár vertexekkel is. Esetleg mindkettő szerepelhet.
+A domborzat leírása .obj alapú.
+A lap leírása 3 vertex pontból áll amiből megkapjuk a normál vektorát ami az első három zárójelben lévő adat. egy pontot három értékkel lehet leírni. A második a textúra elérési útvonala.
+Az UV leírás, négyzetes zárójelben helyezkedik el. az első három adatok a koordináta kódok. A negyedik az eltolás. utána egy textúra forgatás. Ami egy rendundáns adat.
+És végül az utolsó két adat a textúra méretek.
+Ezek a végtelen felületek dupla zárójelben találhatók. a külső zárójel a "plane" azaz a síkok a belső a "brush" az össze tartozó síkok csoportja, hogy csak azok metszik egymást,
+amely ugyan abban a "brush" csoportba tartozik.
