@@ -1,0 +1,181 @@
+	
+	base3d
+		public:
+		//position
+		double x
+		double y
+		double z
+		//speed
+		double xspeed
+		double yspeed
+		double zspeed
+		//rotation
+		double pitch // up-down
+		double roll //x rotation
+		double yaw  // left-right
+		_________________
+		speed_set(double,double,double,double);//xn,yn,zn,speed
+		position_set(double,double,double); //x,y,z
+		rotation_set(double,double,double);//xn,yn,zn
+		
+	Entity:base3d
+		public:
+			int health;
+			int armour;
+			int shield;
+			int energy;
+		_________________
+		Health_set(int);
+		Armour_set(int);
+		Shield_set(int);
+		Energy_set(int);
+		
+			
+	Player:Entity
+		model body;
+		model wings;
+		model nose;
+		weapon primary;
+		weapon secondary;
+		weapon side;
+		bool mode;
+		int overcharge;
+		superweapon power;
+	_________________
+	Draw(); //EVENT!
+	Step(); //EVENT!
+		
+	Enemy2D:Entity
+		model ship;
+		weapon primary;
+		double deltatime;
+		path move;
+	_________________
+	Draw(); //EVENT!
+	Step(); //EVENT!
+		
+	Boss:Entity
+		model ship;
+		list[weapon] weapons;
+		int listsize;
+		AI bossaction;
+	_________________
+	Draw(); //EVENT!
+	Step(); //EVENT!
+		
+	Enemy3D:Enetity
+		model ship;
+		weapon primary;
+		weapon secondary;
+		AI actions3D;
+	_________________
+	Draw(); //EVENT!
+	Step(); //EVENT!
+		
+	Obsticles:Enetity
+		bool solid;
+		bool shadowcast;
+		particle effect;
+		model obsticle;
+	_________________
+	Draw(); //EVENT!
+	Step(); //EVENT!
+	
+	Graphics
+		dictionary[model] models;
+		dictionary[material] textures;
+	
+	model:Directx
+		list[vertex] modelstructure;
+	
+	material:Directx
+		dx::picture texture;
+		int width;
+		int height;
+		
+	vertex:Directx
+		dx::vec3 position;
+		dx::vec3 normal;
+		dx::vec2 uv;
+		dx::vec4 rgba;
+		dx::vec3 binormal;
+		dx::vec3 tangent;
+		
+	Camera:base3d
+		int lookx;
+		int looky;
+		int lookz;
+	_________________
+		set_view_matrix(double,double,double,double,double,double,double,double); //x,y,z,lookx,looky,lookz,znear,zfar
+		set_projection_matrix(int,int,int,int); //fov,size,width,height
+	
+	Screenmanager
+		list[string] choices;
+		int select;
+		model showcase;
+		model wings;
+		model nose;
+		model body;
+	_________________
+		Main_menu();
+		Options();
+		Video();
+		Upgrade_station();
+		Save_menu();
+		Load_menu();
+		Progress_menu();
+		
+		draw();//event
+		step();//event
+	
+	AI
+		double x;
+		double y;
+		double z;
+	_________________
+	void basic_event(double,double,double);
+	void low_heath(double,double,double);
+	void trick_attack(double,double,double);
+	void normal_attack(double,double,double);
+	
+	projectile:base3d
+		model shape;
+		Entity master;
+		int timer;
+		_________________
+		collision(*Entity,bool); //collided with, not me
+		draw();
+		step();
+	
+	weapon
+		dictionary[string] projectile;
+		model weapon_shape;
+		list[string] names;
+		_________________
+		create_shot(double,double,double,double,double,double,double,double,double,int);//x,y,z,speedx,speedy,speedz,dirx,diry,dirz,type
+		step();
+		draw();
+	
+	curve
+		double xstart;
+		double ystart;
+		double zstart;
+		double startvecx;
+		double startvecy;
+		double startvecz;
+		double xend;
+		double yend;
+		double zend;
+		double endvecx;
+		double endvecy;
+		double endvecz;
+	
+	path
+		double startx;
+		double starty;
+		double startz;
+		
+		list[curve] curves;
+		int current_curve;
+	_________________
+	void action(*double,*double,*double,curve,delta_time);

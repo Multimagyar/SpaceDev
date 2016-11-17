@@ -1,0 +1,7 @@
+-nem kell HTML-be
+-verzió történet történet helyett
+-verzió szám fixálása
+-szótár formázása
+-több kockázati tényezõ kell
+-játékról részletesebb leírás(mintha egy idegennek írnánk aki semmit nem tud még a játékról)
+-projekterv feladatainak szétosztása
