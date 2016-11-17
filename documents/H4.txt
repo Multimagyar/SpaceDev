@@ -1,9 +1,0 @@
-SRS:
--rossz a use case diagram(csak cselekvések kellenek, de abból az összes, nem pedig menütérkép)
--architekturális rajz, hogy az aktorok hogy kommunikálnak egymással és a funkciókkal
-
-Analízis modell:
--osztályok száma az osztálydiagramban nincs megkötve
-
-Rendszerterv:
--szekvencia-és aktivitásdiagram, állapotdiagram

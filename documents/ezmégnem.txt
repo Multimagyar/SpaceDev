@@ -1,7 +1,0 @@
-
-•	H3 [ specifikációs fázis ] : szoftverkövetelmény specifikáció elkészítése, szótár kiemelése a vízió dokumentumból, felhasználói dokumentáció készítés követelményspecifikáció alapján. Munkanapló összeállítása.
-
-•	H4 [ OOP analízis ] : analízis modell dokumentum elkészítése, részfeladatok megoldása (osztálydiagrammok, alrendszer-bontások), alrendszerek kidolgozása. SRS-ben felsorolt use-case-ek elemzése,
-és együttmuködési diagrammok készítése. Funkcionális modell készítése,
-legfontosabb funkciók részletes leírása. Validációs lépések: kapcsolatok és argumentumok vizsgálata. Felhasználói felület terve.
-H5 [ Implementáció ] : objektum tervezési fázisának megvalósítása, tesztelés, dokumentáció.
