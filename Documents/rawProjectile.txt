@@ -1,0 +1,16 @@
+public class Projectile : Base3D
+{
+   public model shape;
+   public Entity master;
+   public int timer;
+
+   public Projectile(model shape, Entity master, int timer) : base(Base3D)
+   {
+       shape = shape;
+       master = master;
+       timer = timer;
+   }
+   private void collision(){};
+   private void Draw(){};
+   private void Step(){};
+}

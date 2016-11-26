@@ -1,0 +1,15 @@
+public class Camera : Base3D
+{
+   public int lookx;
+   public int looky;
+   public int lookz;
+
+   public Camera(int x, int y, int z) : base(Base3D)
+   {
+       lookx = x;
+       looky = y;
+       lookz = z;
+   }
+   private void set_view_matrix(x,y,z,lookx,looky,lookz,znear,zfar){};
+   private void set_projection_matrix(fov,size,width,height){};
+}
