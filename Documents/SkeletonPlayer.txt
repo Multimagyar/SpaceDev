@@ -1,0 +1,26 @@
+class SkeletonPlayer:Entity
+{
+	public model body;
+	public model wings;
+	pulbic model nose;
+	public weapon primary;
+	public weapon secondary;
+	public weapon side;
+	public bool mode;
+	public int overcharge;
+	public weapon power;
+	public SkeletonPlayer(model body, model wings, model nose, weapon primary, weapon secondary, weapon side, bool mode, int overcharge, weapon power)
+	{
+		this.body=body;
+		this.wings=wings;
+		this.nose=nose;
+		this.primary=primary;
+		this.secondary=secondary;
+		this.side=side;
+		this.mode=mode;
+		this.overcharge=overcharge;
+		this.power=power;
+	}
+	public Draw(){}
+	public Step(){}
+}
