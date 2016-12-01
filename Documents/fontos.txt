@@ -1,0 +1,3 @@
+-analízis modell rossz: aktivitás diagram-nem menütérkép kell, hanem a cselekvések ábrázolása(több diagram is lehet)
+-szekvenciadiagramok
+-JÖVÕ HÉTEN MINDENKINEK BENT KELL LENNIE!
