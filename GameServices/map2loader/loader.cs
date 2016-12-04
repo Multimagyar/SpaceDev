@@ -2,8 +2,8 @@
 {
 	public class Materials
 	{
-		public List<Texture.BaseTexture> textures = new List<Texture.BaseTexture>;
-		public Dictionary<string,Dictionary<string,string>> information = new Dictionary<string,Dictionary<string,string>>;
+		public List<Texture.BaseTexture> textures;
+		public Dictionary<string,Dictionary<string,string>> information;
 		
 		public Materials()
 		{
@@ -17,37 +17,51 @@
 	}
 	public class Models
 	{
-		public List<Resource.VertexBuffer> textures = new List<Resource.VertexBuffer>;
-		public Dictionary<string,Dictionary<string,string>> information = new Dictionary<string,Dictionary<string,string>>;
+		public List<Resource.VertexBuffer> model;
+		public Dictionary<string,Dictionary<string,string>> information;
 		
-		public void model_load(List<Texture.BaseTexture>,Dictionary<string,string>,VertexFormats);
+		public Materials()
+		{
+			model = new List<Resource.VertexBuffer>;
+			information = new Dictionary<string,Dictionary<string,string>>;
+		}
+		
+		public void model_load(List<Texture.BaseTexture>,Dictionary<string,string>,Resource.VertexFormats);
 		public void model_delete(string);
 		public void model_destroy();
 	}
 }
-namespace ObjParser
+
+namespace ObjParser  //Wavefront file betöltésére
 {
 	public class Obj
 	{
-		public List<Vertex> VertexList;
-		public List<Face> FaceList;
-		public List<TextureVertex> TextureList;
+		//vertex adatok
+		public List<algebra.vec3> VertexList;
+		public List<algebra.vec3> NormalList;
+		public List<algebra.vec2> TextureList;
+		public List<algebra.vec3> FaceList;
+		//beolvasott adatsor
 		private string data[];
-		
+		//default construktor
 		public Obj()
 	    {
-            VertexList = new List<Vertex>();
-            FaceList = new List<Face>();
-			TextureList = new List<TextureVertex>();
+            VertexList = new List<algebra.vec3>();
+            FaceList = new List<algebra.vec3>();
+            NormalList = new List<algebra.vec3>();
+			TextureList = new List<algebra.vec2>();
 		}
+		//adat feldogozó funkciók
 		public void LoadWavefrontData(string path){}
 		private void ProcessData(string line){}
 		public Resource.VertexBuffer ModelToBuffer(VertexFormats){};
 
 	}
 }
+
 namespace algebra
 {
+	//Algebrai adat típusok pálya és model betöltéshez.
 	public class vec2
 	{
 		public double x;
@@ -79,16 +93,17 @@ namespace Map2loader
 {
 	public class Datastorage
 	{
-		private int depth;
-		private string filename;
-		private Dictionary<string,string> current_class;
-		private List<algebra.vec4> planes;
-		private List<string> planes_Texture;
-		private List<algebra.vec4> plane_axu;
-		private List<algebra.vec4> plane_axv;
-		private List<algebra.vec3> plane_scale;
-		private List<algebra.vec3> collision_points;
+		private int depth; //zárójel mélység
+		private string filename; //fájlt neve
+		private Dictionary<string,string> current_class; //a classban élvő betöltött adatok
+		private List<algebra.vec4> planes;   //végtelen síkok normálja és távolsága az origótól
+		private List<string> planes_Texture;  //a textúrák neve
+		private List<algebra.vec4> plane_axu;  //u szerinti textúra forgatás
+		private List<algebra.vec4> plane_axv;  //v szerinti textúra forgatás
+		private List<algebra.vec3> plane_scale;   //textúra nyújtás
+		private List<algebra.vec3> collision_points;    //sík ütközések pontja
 		
+		//default construktor
 		public Datastorage()
 		{
 			int depth=0;
